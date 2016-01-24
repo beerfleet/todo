@@ -29,6 +29,12 @@ function initMenuTodo() {
 
 function initTable() {
     $(".dataTable").dataTable({});
+    $(".finished").on('click', function() {
+        is_checked = $(this).is(':checked');        
+        if (is_checked) {
+            
+        }
+    });
 }
 
 function initDatePicker() {
