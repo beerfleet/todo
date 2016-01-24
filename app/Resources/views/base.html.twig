@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {# COMMON STYLES #}
+        {% stylesheets 'bundles/todo/css/bootstrap.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        
+        {% stylesheets 'bundles/todo/css/bootstrap-theme.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
+        {% stylesheets 'bundles/todo/css/common.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        
+        
+        
+        
+
+        {# STYLESHEETS to implement in child templates #}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />        
+
+</head>
+<body>
+    {% block header %}
+        <header class="container">
+            <div class="hdr-frame">
+                <h1>TODO</h1>
+            </div>
+
+            {% embed 'TodoBundle:Main:menu.html.twig' %}            
+            {% endembed %}
+
+            {% block messages %}
+                <div class="msg-error">
+                    {% block error %}
+                        {% for flashMessage in app.session.flashbag.get('error') %}
+                            {{ flashMessage }}
+                        {% endfor %}
+                    {% endblock error %}
+                </div>
+                <div class="msg-info">
+                    {% block info %}
+                        {% for flashMessage in app.session.flashbag.get('info') %}
+                            {{ flashMessage }}
+                        {% endfor %}
+                    {% endblock info %}
+                </div>                
+            {% endblock messages %}
+
+        </header>
+    {% endblock header %}
+
+    {% block body %}
+        <div class="wrapper">
+        {% block content %}{% endblock content %}
+        <div class="push"></div>
+    </div>
+
+    <div class="footer">
+        {% block footer %}
+            <footer class="container"><p>Copyright &copy; 2016</p></footer>
+            {% endblock footer %}
+    </div>
+{% endblock body %}
+
+{# SCRIPTING #}
+{% javascripts '@TodoBundle/Resources/public/js/jQuery/jQuery.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts '@TodoBundle/Resources/public/js/bootstrap.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript" src="https://cdn.datatables.net/s/ju/jqc-1.11.3,dt-1.10.10/datatables.min.js"></script>
+
+{% javascripts '@TodoBundle/Resources/public/js/jquery-ui-1.11.4/jquery-ui.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts '@TodoBundle/Resources/public/js/custom-main.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

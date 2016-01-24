@@ -1,0 +1,11 @@
+todo_homepage:
+    path:       /
+    defaults:   { _controller: TodoBundle:Main:index }
+
+todo_new:
+    path:       /todo/new
+    defaults:   { _controller: TodoBundle:Todo:New }
+
+todo_show_list:
+    path:     /todo/list
+    defaults: { _controller: TodoBundle:Todo:showList }

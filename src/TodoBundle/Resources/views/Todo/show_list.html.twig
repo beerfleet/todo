@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Show Todo Items{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/ju/jqc-1.11.3,dt-1.10.10/datatables.min.css"/>
+    {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.css' filter='cssrewrite' %} 
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}    
+    {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.structure.css' filter='cssrewrite' %} 
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.theme.css' filter='cssrewrite' %} 
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="container">
+        <h1>Todo List</h1>
+        <section id="todo-list">
+            <table class="dataTable">
+                <thead>
+                    <tr>
+                        <th>Created</th>
+                        <th>Item</th>
+                        <th>Content</th>
+                        <th>Due date</th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                    {% for item in items %}
+                        <tr data-id="{{ item.getId() }}">
+                            <td>{{ item.getCreationDate()|date('Y-m-d H:i') }}</td>
+                            <td>{{ item.getTitle() }}</td>
+                            <td class="limit-chars">{{ item.getDescription() }}</td>
+                            <td>{{ item.getTodoDate()|date('Y-m-d') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts '@TodoBundle/Resources/public/js/jquery-ui-1.11.4/jquery-ui.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}

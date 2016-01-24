@@ -1,0 +1,41 @@
+TodoBundle\Entity\TodoItem:
+    type: entity
+    table: todo_item
+    indexes:
+        idx_title:
+            columns:
+                - title
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        creationDate:
+            type: datetime
+            nullable: true
+            column: creation_date
+        todoDate:
+            type: datetime
+            nullable: true
+            column: todo_date
+        finished:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

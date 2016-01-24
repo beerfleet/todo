@@ -1,0 +1,21 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends "::base.html.twig" %}
+
+{% block title %}New Todo{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section id="input">
+            <h1>Add a new todo</h1>
+
+            {{ form_start(form) }}
+
+            {% block title_row %}
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+            {% endblock title_row %}                        
+
+            {{ form_end(form) }}
+        </section>
+    </div>
+{% endblock content %}
