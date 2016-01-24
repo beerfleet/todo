@@ -26,6 +26,7 @@
                         <th>Item</th>
                         <th>Content</th>
                         <th>Due date</th>
+                        <th>Finished ?</th>
                     </tr>
                 </thead>
                 <tbody>                    
@@ -35,6 +36,9 @@
                             <td>{{ item.getTitle() }}</td>
                             <td class="limit-chars">{{ item.getDescription() }}</td>
                             <td>{{ item.getTodoDate()|date('Y-m-d') }}</td>
+                            <td>
+                                <input type="checkbox" name="finished" class="finished" value="{{ item.getFinished() }}">
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
