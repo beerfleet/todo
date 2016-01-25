@@ -3,6 +3,18 @@
 
 {% block title %}New Todo{% endblock %}
 
+    {% block stylesheets %}        
+        {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}    
+        {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.structure.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        {% stylesheets 'bundles/todo/js/jquery-ui-1.11.4/jquery-ui.theme.css' filter='cssrewrite' %} 
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
 {% block content %}
     <div class="container">
         <section id="input">
