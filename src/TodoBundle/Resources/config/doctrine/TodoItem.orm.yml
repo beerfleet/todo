@@ -1,4 +1,5 @@
 TodoBundle\Entity\TodoItem:
+repositoryClass: TodoBundle\Entity\Repo\TodoRepository
     type: entity
     table: todo_item
     indexes:
