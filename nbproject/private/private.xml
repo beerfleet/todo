@@ -2,23 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
         <file>
-            <url>src/TodoBundle/Resources/public/js/custom-main.js</url>
-            <bookmark id="1">
-                <name/>
-                <line>23</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
             <url>src/TodoBundle/Controller/TodoController.php</url>
             <bookmark id="2">
                 <name/>
-                <line>13</line>
+                <line>14</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>32</line>
+                <line>35</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/TodoBundle/Resources/public/js/custom-main.js</url>
+            <bookmark id="1">
+                <name/>
+                <line>21</line>
                 <key/>
             </bookmark>
         </file>
