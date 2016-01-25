@@ -38,4 +38,9 @@ class TodoController extends Controller {
         return $this->render('TodoBundle:Todo:show_list.html.twig', ['items' => $items]);
     }
 
+    public function updateFinishedStateAction() {
+        $state = new DateTime();
+        var_dump("DEN TIJD TEST OP OUTPUT" . var_dump($state));
+    }
+
 }

@@ -9,3 +9,7 @@ todo_new:
 todo_show_list:
     path:     /todo/list
     defaults: { _controller: TodoBundle:Todo:showList }
+
+ajax_updateTodoFinished:
+    path:     /todo/ajax/updateTodoFinished
+    defaults: { _controller: TodoBundle:Todo:updateFinishedState }
