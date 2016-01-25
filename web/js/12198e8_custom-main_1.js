@@ -29,6 +29,17 @@ function initMenuTodo() {
 
 function initTable() {
     $(".dataTable").dataTable({});
+    $(".finished").on('click', function() {
+        is_checked = $(this).is(':checked');
+        obj_data = {'id': $(this).parent().parent().attr("data-id")};
+        $.ajax({
+            url: "ajax/updateTodoFinished",
+            data: obj_data,
+            success: function() {
+                console.log("PARA BAILAR LABAMBA");
+            }
+        });        
+    });
 }
 
 function initDatePicker() {
