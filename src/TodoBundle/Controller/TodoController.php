@@ -41,6 +41,7 @@ class TodoController extends Controller {
     public function updateFinishedStateAction() {
         $state = new DateTime();
         var_dump("DEN TIJD TEST OP OUTPUT" . var_dump($state));
+        return new Response($state);
     }
 
 }
