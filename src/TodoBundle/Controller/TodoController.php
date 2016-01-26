@@ -41,10 +41,10 @@ class TodoController extends Controller {
 
     public function updateFinishedStateAction(Request $request) {
         $id = $request->get("id");
+        $state = $request->get("state");
         $repo = $this->getDoctrine()->getRepository("TodoBundle:TodoItem");
         $item = $repo->findOneById($id);
-        var_dump($item);
-
+        $item->setFinished($state ? 1 : 0);
         return new Response("ID $id GUACAMOLE");
     }
 

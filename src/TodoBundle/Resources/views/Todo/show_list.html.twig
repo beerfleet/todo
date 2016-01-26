@@ -37,7 +37,7 @@
                             <td class="limit-chars">{{ item.getDescription() }}</td>
                             <td>{{ item.getTodoDate()|date('Y-m-d') }}</td>
                             <td>
-                                <input type="checkbox" name="finished" class="finished" {{ item.getFinished() ? "checked" }}>
+                                <input type="checkbox" name="finished" class="finished" {{ item.getFinished() ? "checked='checked'" }}>
                             </td>
                         </tr>
                     {% endfor %}
