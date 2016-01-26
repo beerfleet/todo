@@ -5,6 +5,7 @@ namespace TodoBundle\Controller;
 use TodoBundle\Entity\TodoItem;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use DateTime;
 use TodoBundle\Form\Type\ItemType;
 
@@ -38,10 +39,13 @@ class TodoController extends Controller {
         return $this->render('TodoBundle:Todo:show_list.html.twig', ['items' => $items]);
     }
 
-    public function updateFinishedStateAction() {
-        $state = new DateTime();
-        var_dump("DEN TIJD TEST OP OUTPUT" . var_dump($state));
-        return new Response($state);
+    public function updateFinishedStateAction(Request $request) {
+        $id = $request->get("id");
+        $repo = $this->getDoctrine()->getRepository("TodoBundle:TodoItem");
+        $item = $repo->findOneById($id);
+        var_dump($item);
+
+        return new Response("ID $id GUACAMOLE");
     }
 
 }
