@@ -6,6 +6,7 @@ use TodoBundle\Entity\TodoItem;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use DateTime;
 use TodoBundle\Form\Type\ItemType;
 
@@ -49,7 +50,7 @@ class TodoController extends Controller {
         $em->persist($item);
         $em->flush();
 
-        return new Response("ID $id GUACAMOLE");
+        return new JsonResponse(['success, item with id ' => $item->getId() . ' stored']);
     }
 
 }

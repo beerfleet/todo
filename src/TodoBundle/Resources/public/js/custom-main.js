@@ -39,7 +39,7 @@ function initTable() {
             url: "ajax/updateTodoFinished",
             data: obj_data,
             success: function() {
-                console.log("PARA BAILAR LABAMBA");
+                console.log("Item update finished success ! ");
             }
         });        
     });
