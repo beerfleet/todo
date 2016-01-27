@@ -45,6 +45,10 @@ class TodoController extends Controller {
         $repo = $this->getDoctrine()->getRepository("TodoBundle:TodoItem");
         $item = $repo->findOneById($id);
         $item->setFinished($state ? 1 : 0);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($item);
+        $em->flush();
+
         return new Response("ID $id GUACAMOLE");
     }
 
