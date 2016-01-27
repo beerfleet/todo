@@ -35,7 +35,7 @@
                             <td>{{ item.getCreationDate()|date('Y-m-d H:i') }}</td>
                             <td>{{ item.getTitle() }}</td>
                             <td class="limit-chars">{{ item.getDescription() }}</td>
-                            <td>{{ item.getTodoDate()|date('Y-m-d') }}</td>
+                            <td class="datepick"><span>{{ item.getTodoDate()|date('Y-m-d') }}</span></td>
                             <td>
                                 <input type="checkbox" name="finished" class="finished" {{ item.getFinished() ? "checked='checked'" }}>
                             </td>
