@@ -45,7 +45,7 @@ class TodoController extends Controller {
         $state = $request->get("state");
         $repo = $this->getDoctrine()->getRepository("TodoBundle:TodoItem");
         $item = $repo->findOneById($id);
-        $item->setFinished($state == true? 1 : 0);
+        $item->setFinished($state == "true" ? true : false);
         $em = $this->getDoctrine()->getManager();
         $em->persist($item);
         $em->flush();
