@@ -31,12 +31,15 @@ function initTable() {
     $(".dataTable").dataTable({});
     $(".finished").on('click', function() {
         is_checked = $(this).is(':checked');
-        obj_data = {'id': $(this).parent().parent().attr("data-id")};
+        obj_data = {
+            'id': $(this).parent().parent().attr("data-id"),
+            'state': is_checked
+        };
         $.ajax({
             url: "ajax/updateTodoFinished",
             data: obj_data,
             success: function() {
-                console.log("PARA BAILAR LABAMBA");
+                console.log("Item update finished success ! ");
             }
         });        
     });
