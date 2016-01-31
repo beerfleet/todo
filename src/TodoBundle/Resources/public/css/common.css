@@ -83,8 +83,8 @@ and open the template in the editor.
 }
 
 /* todo forms */
-.item_todoDate {
-    
+.datepick {
+    width: 140px;
 }
 
 /* FIXED FOOTER */

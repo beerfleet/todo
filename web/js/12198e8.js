@@ -51,10 +51,11 @@ function initSetFinished() {
 }
 
 function initSetDueDate() {
-    $(".datepick").on("click", function() {
-        $(this).datepicker();
-        console.log("SET DATEPICKER -> " + $(this));
+    $(".datepick").datepicker({
+        minDate: new Date(2014, 12 - 1, 25),
+        dateFormat: 'yy-mm-dd'
     });
+    console.log("SET DATEPICKER -> " + $(this));
 }
 
 function initDatePicker() {
