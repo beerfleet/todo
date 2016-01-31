@@ -1,6 +1,6 @@
 $(function () {
     initMenu();
-    initTable();
+    initTodoTable();
     initDatePicker();
 });
 
@@ -27,7 +27,7 @@ function initMenuTodo() {
             });
 }
 
-function initTable() {
+function initTodoTable() {
     $(".dataTable").dataTable({});
     initSetFinished();
     initSetDueDate();
@@ -44,18 +44,33 @@ function initSetFinished() {
             url: "ajax/updateTodoFinished",
             data: obj_data,
             success: function () {
-                console.log("Item update finished success ! ");
+                console.log("Finished state update success ! ");
             }
         });
     });
 }
 
 function initSetDueDate() {
-    $(".datepick").datepicker({
-        minDate: new Date(2014, 12 - 1, 25),
-        dateFormat: 'yy-mm-dd'
-    });
-    console.log("SET DATEPICKER -> " + $(this));
+    $(".datepick")
+            .datepicker({
+                minDate: new Date(2014, 12 - 1, 25),
+                dateFormat: 'yy-mm-dd'
+            })
+            .on("change", function () {
+                input_date = $(this).attr("value");
+                obj_data = {
+                    'id': $(this).parent().parent().attr("data-id"),
+                    'date': input_date
+                };
+                $.ajax({
+                    url: "ajax/updateTodoDate",
+                    data: obj_data,
+                    success: function() {
+                        console.log("Date update success ! ");
+                    }
+                });
+            });
+
 }
 
 function initDatePicker() {

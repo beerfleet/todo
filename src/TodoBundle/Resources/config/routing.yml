@@ -13,3 +13,7 @@ todo_show_list:
 ajax_updateTodoFinished:
     path:     /todo/ajax/updateTodoFinished
     defaults: { _controller: TodoBundle:Todo:updateFinishedState }
+    
+ajax_updateTodoDate:
+    path:     /todo/ajax/updateTodoDate
+    defaults: { _controller: TodoBundle:Todo:updateDate }

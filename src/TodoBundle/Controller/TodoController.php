@@ -51,5 +51,18 @@ class TodoController extends Controller {
 
         return new JsonResponse(['success, item with id ' => $item->getId() . ' stored']);
     }
+    
+    public function updateDateAction(Request $request) {
+        $id = $request->get("id");
+        $date = $request->get("date");
+        $repo = $this->getDoctrine()->getRepository("TodoBundle:TodoItem");
+        $item = $repo->findOneById($id);
+        $item->SetTodoDate( new DateTime($date) );
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($item);
+        $em->flush();
+        
+        return new JsonResponse(['success, date of with id ' => $item->getId() . ' changed']);
+    }
 
 }
