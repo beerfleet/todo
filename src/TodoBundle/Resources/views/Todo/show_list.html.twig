@@ -32,7 +32,7 @@
                 <tbody>                    
                     {% for item in items %}
                         <tr data-id="{{ item.getId() }}">
-                            <td>{{ item.getCreationDate()|date('Y-m-d H:i') }}</td>
+                            <td>{{ item.getCreationDate()|date('Y-m-d') }}</td>
                             <td>{{ item.getTitle() }}</td>
                             <td class="limit-chars">{{ item.getDescription() }}</td>
                             <td class="datepick"><span>{{ item.getTodoDate()|date('Y-m-d') }}</span></td>

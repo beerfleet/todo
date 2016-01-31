@@ -1,5 +1,5 @@
-$(function () {    
-    initMenu();    
+$(function () {
+    initMenu();
     initTable();
     initDatePicker();
 });
@@ -29,7 +29,12 @@ function initMenuTodo() {
 
 function initTable() {
     $(".dataTable").dataTable({});
-    $(".finished").on('click', function() {
+    initSetFinished();
+    initSetDueDate();
+}
+
+function initSetFinished() {
+    $(".finished").on('click', function () {
         is_checked = $(this).is(':checked');
         obj_data = {
             'id': $(this).parent().parent().attr("data-id"),
@@ -38,16 +43,23 @@ function initTable() {
         $.ajax({
             url: "ajax/updateTodoFinished",
             data: obj_data,
-            success: function() {
+            success: function () {
                 console.log("Item update finished success ! ");
             }
-        });        
+        });
+    });
+}
+
+function initSetDueDate() {
+    $(".datepick").on("click", function() {
+        $(this).datepicker();
+        console.log("SET DATEPICKER -> " + $(this));
     });
 }
 
 function initDatePicker() {
     $('#item_todoDate').datepicker({
-        minDate: new Date(2014, 12-1, 25),
+        minDate: new Date(2014, 12 - 1, 25),
         dateFormat: 'yy-mm-dd'
     });
 }
