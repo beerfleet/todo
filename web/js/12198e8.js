@@ -56,17 +56,21 @@ function initSetDueDate() {
                 minDate: new Date(2014, 12 - 1, 25),
                 dateFormat: 'yy-mm-dd'
             })
-            .on("select", function () {
-                input_date = $(this).attr("value");
+            .on("change", function () {
+                input_date = $(this).datepicker('getDate');
+                date_yyyy = input_date.getFullYear();
+                date_mm = input_date.getMonth() + 1;
+                date_dd = input_date.getDate();
+                output_date = date_yyyy + '-' + date_mm + '-' + date_dd;
                 obj_data = {
                     'id': $(this).parent().parent().attr("data-id"),
-                    'date': input_date
+                    'date': output_date
                 };
                 $.ajax({
                     url: "ajax/updateTodoDate",
                     data: obj_data,
                     success: function() {
-                        console.log("Date update success ! ");
+                        console.log("Date update success => " + output_date);
                     }
                 });
             });
